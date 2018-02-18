@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+  </head>
+  <body>
+    <ul id="messages">
+    </ul>
+    
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    const socket = io()
+
+    $(document).ready(() => {
+        socket.on('data', handleMsg)
+    })
+
+    function handleMsg(msg) {
+        console.log(msg)
+        document.getElementById('messages').innerHTML += ('<ul>' + msg + '</ul>')
+    }
+
+    function PostMessage() {
+        var msg = document.getElementById('text_field').value
+        socket.emit('data', msg)
+    }
+  </script>
+  
+ 
+  <input type="text" id = "text_field">
+  <button id="post_button" onclick="PostMessage()">Post Message</button>
+  </body>
+</html>
+    
