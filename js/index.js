@@ -1,15 +1,7 @@
 const socket = io()
 $(document).ready(() => {
     socket.on('data', handleMsg)
-    
 })
-
-function handleMsg(msg) {
-    console.log("this is the value "+document.getElementById('text_field').value);
-    
-        document.getElementById('messages').innerHTML += ('<ul>' + msg + '</ul></div>'+'<div class="line" style="width:80%;">')
-        
-}
 
 function PostMessage() {
     
@@ -18,18 +10,9 @@ function PostMessage() {
     if(msg != ''){
         socket.emit('data', msg)
         document.getElementById('text_field').value = ''
-        
-            if ( $("#content").css('display') == '79%' ){
-                $("#content").css({"height":"auto", "overflow-y":"scroll"}); 
-            }else{
-                $("#content").css({"height":"", "overflow-y":""});
-            }
     }
     
 }
-clearFormFields = function(area) {
-    $(area).find('input[type="text"],input[type="email"],textarea,select').val('');
-  };
 function addRoom() {
     var name = document.getElementById('roomName').value
     console.log("room name is: "+name);
@@ -39,3 +22,29 @@ function addRoom() {
     $( '.modal-backdrop' ).hide();
         
 }
+
+function newMessage() {
+    message = $(".message-input input").val();
+    
+	if($.trim(message) == '') {
+		return false;
+    }
+	$('<ul>' + message + '</ul></div>'+'<div class="line" style="width:80%;">').appendTo($('.messages'));
+	$('.message-input input').val(null);
+	$('.contact.active .preview').html('<span>You: </span>' + message);
+    $(".messages").animate({ scrollTop: $(document).height() }, 'fast');
+    
+};
+
+$('.submit').click(function() {
+    console.log("you are here")
+  newMessage();
+});
+
+$(window).on('keydown', function(e) {
+    console.log("you are here")
+  if (e.which == 13) {
+    newMessage();
+    return false;
+  }
+});
