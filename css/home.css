@@ -1,3 +1,22 @@
 body { 
-    background: lightblue; 
+    background: white; 
+}
+
+#createButton{
+    padding-bottom: 2px;
+    padding-top: 1px;
+    color: #383838;
+    border-radius: 30px;
+    height: 10px;
+    text-align: center;
+}
+#createButton:hover
+{
+    color: white;
+    background:#383838;
+    border-radius: 30px;
+}
+#createButton:active
+{
+    border-color:#e9e5e5;
 }

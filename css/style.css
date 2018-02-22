@@ -1,0 +1,230 @@
+/*
+    DEMO STYLE
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+    min-height: 100%;
+    
+    overflow: none;
+    -webkit-overflow-scrolling:none;
+}
+html{
+    max-height: 80%;
+}
+.navbar-default .navbar-nav li a {
+    color: #383838;
+    border-radius: 30px;
+}
+.navbar-default .navbar-nav li a:hover {
+    color: white;
+    background:#383838;
+    border-radius: 30px;
+}
+.navbar-default .navbar-nav li a:active{
+    border-color:#0f6b0f;
+}
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: rgb(245, 245, 241);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    position: absolute; top: 0px; left: 0px;
+    min-width: 230px;
+    max-width: 230px;
+    min-height: 100%;
+    max-height: 110%;
+    background: #fafafa;
+    color: #fff;
+    border-right: 1px solid rgb(221, 218, 218);
+    transition: all 0.3s;
+    
+    
+}
+.components{
+    background: #fafafa;;
+    max-height: 250px;
+    min-height: 200px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 1px;
+    color: black;
+    background: #c4c6d1;
+    
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: black;
+    padding: 4px;
+}
+
+#sidebar ul li a {
+    padding: 5px;
+    font-size: 1.1em;
+    display: block;
+    box-shadow: 1px 1px 3p;
+    color: rgb(8, 1, 1);
+}
+#sidebar ul li a:hover {
+    color:white;
+    padding: 10px;
+    font-size: 1.1em;
+    background: lightslategray;
+
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: rgb(8, 1, 1);
+    background: #6d7fcc;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+a.article, a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+.top-navbar
+{
+    position: absolute; left: 250px;
+    padding: 10px;
+    min-width: 80%;
+    max-width: 80%;
+    max-height: 10px;
+    transition: all 0.3s;
+}
+#content {
+    position: absolute; top: 100px; left: 260px;
+    padding-top: 100px;
+    max-height: 78%;
+    min-height: 78%;
+    max-width: 79%;
+    min-width: 79%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+}
+.message-area{
+    position: absolute; top: 92%; left: 261px;
+    min-width: 70%;
+}
+.message-area-content{
+    position: absolute; top: 92%; left: 86%;
+    min-width: 5%;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+@media (min-width: 768px) {
+.navbar-nav li a {
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    text-align: center;
+}
+}

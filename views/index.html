@@ -1,17 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Kulchat</title>
-    <link rel="stylesheet" type="text/css" href="css/home.css">
-    <script src="js/index.js"></script>
-  </head>
-  <body>
-    <ul id="messages">
-    </ul>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-  <input type="text" id = "text_field">
-  <button id="post_button" onclick="PostMessage()">Post Message</button>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>kulchat</title>
+
+         <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+
+                <div class="sidebar-header">
+                    <h3>kulchat</h3>
+                </div>
+                <ul class="components" id ="groupArea">
+                    <p>Rooms</p>
+                </ul>
+                <ul class="conversations" id ="conversation">
+                    <p>Conversations</p>
+                </ul>
+            </nav>
+            <div class="top-navbar">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+        
+                         <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left">DOPE</i>
+                                    </button>
+                                </div>
+        
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <!--<li><a href="" id = "createButton"class ="btn" data-target="#loginModal" data-toggle ="modal">Create Group</a></li>-->
+                                        <li><a href="#">All</a></li>
+                                        <li><a href="#">Groups</a></li>
+                                        <li><a href="#">Conversations</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#exampleModal">Create Room</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                     <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Create A New Room</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <input class="form-control" id = "roomName" type="text" placeholder="Room Name">
+                                                <p>Give your room a meaningfull name, 'Class, Group, Club' etc..</p>
+                                                <input class="form-control" type="text" id ="description" placeholder="Description">
+                                                <p>Tell people what this room is about</p>
+                                                <div class ="privacy">
+                                                        <p>Privacy</p>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                            <label class="form-check-label" for="exampleRadios1">
+                                                              Public
+                                                            </label>
+                                                          </div>
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                            <label class="form-check-label" for="exampleRadios2">
+                                                              Private
+                                                            </label>
+                                                          </div>
+                                                        </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" id="submitbutton"class="btn btn-primary" data-dismiss="modal" onclick="addRoom()">Create Room</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+            
+            <!-- Page Content Holder -->
+            <div id="content">
+                <ul id="messages"></ul>
+              
+            
+            </div>
+            <div class="message-area">
+                <form>
+                    <div class="form-group">
+                    <input type="text" class="form-control" id = "text_field"  placeholder="Message">
+                    
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class ="message-area-content">
+            <button type="button" id="send-button" class="btn btn-primary" onclick="PostMessage()">Send</button>
+        </div>
+        
+        
+
+
+
+
+        <!-- jQuery CDN -->
+         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+         <!-- Bootstrap Js CDN -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+         <script src="/socket.io/socket.io.js"></script>
+         <script src="js/index.js"></script>
+
+         <script type="text/javascript">
+            /* <!--$(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });*/
+         </script>
+    </body>
 </html>
-    
